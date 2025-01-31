@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body {
+            text-align: center;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            font-family: Arial, sans-serif;
+        }
+        .balloon-container, .cake-container {
+            margin-top: 50px;
+        }
+        .balloon {
+            width: 150px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .balloon:hover {
+            transform: scale(1.1);
+        }
+        .pop {
+            animation: popBalloon 0.5s forwards;
+        }
+        @keyframes popBalloon {
+            0% { transform: scale(1.2); }
+            100% { transform: scale(0); opacity: 0; }
+        }
+        .cake-container {
+            display: none;
+            margin-top: 50px;
+        }
+        .cake {
+            width: 200px;
+        }
+        .cut-button {
+            background-color: #ff4081;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .cut-button:hover {
+            background-color: #d81b60;
+        }
+        .hidden {
+            display: none;
+        }
+        .photo-gallery {
+            margin-top: 20px;
+        }
+        .photo {
+            width: 150px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+        .photo:hover {
+            transform: scale(1.1);
+        }
+        .wish {
+            font-size: 18px;
+            margin-top: 20px;
+            color: blue
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .back-button {
+            background-color: #2196F3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #0b7dda;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- First Page: Balloon and Cake -->
+    <div id="page1">
+        <h1>Click the Balloon! 🎈</h1>
+        <div class="balloon-container">
+            <img src="https://raw.githubusercontent.com/marinatrend/happybirthday/refs/heads/main/HappyBirthdayRubberBalloonPink-remove-bg-io.png" alt="Balloon" class="balloon" id="balloon">
+        </div>
+        <div class="cake-container" id="cake-container">
+            <img src="https://raw.githubusercontent.com/marinatrend/happybirthday/refs/heads/main/birthday-cake-happy-birthday-cake-birthday-cake-transparent-background-ai-generative-free-png-remove-bg-io%20(1).png" alt="Cake" class="cake">
+            <button class="cut-button" onclick="showPage2()">Cut the Cake</button>
+        </div>
+    </div>
+
+    <!-- Second Page: Birthday Wishes -->
+    <div id="page2" class="hidden">
+        <h1>Happy Birthday My Babe 🎉</h1>
+        <div class="photo-gallery">
+            <img src="https://raw.githubusercontent.com/marinatrend/happybirthday/refs/heads/main/1735402848059.jpg" class="photo">
+            <img src="https://raw.githubusercontent.com/marinatrend/happybirthday/refs/heads/main/1735403861710.jpg" class="photo">
+            <img src="https://raw.githubusercontent.com/marinatrend/happybirthday/refs/heads/main/1735403793512.jpg" class="photo">
+            <img src="https://raw.githubusercontent.com/marinatrend/happybirthday/refs/heads/main/1730601293801.jpg" class="photo">  
+            <img src="https://raw.githubusercontent.com/marinatrend/happybirthday/refs/heads/main/1738334032717.jpg" class="photo"> 
+        </div>
+        <p class="wish">Wishing you a day filled with love and joy! 🎂💖Happy Birthday, My Love! 🎂❤️
+
+            My dearest Darling,
+            
+            On this special day, I want to remind you how incredibly special you are to me. From the moment you came into my life, you filled it with love, happiness, and warmth. Your beautiful smile brightens even my darkest days, and your kind heart makes every moment with you so precious.
+            
+            Today, as you celebrate another year of your beautiful journey, I want to thank you for being the most amazing person in my life. You are not just my love but also my best friend, my happiness, and my greatest blessing. Every moment with you feels like a dream, and I cherish every memory we create together.
+            
+            I pray that this year brings you endless joy, success, and love. May all your dreams come true, and may you always be surrounded by the happiness you bring to others. You deserve all the love and laughter in the world because you are truly one of a kind.
+            
+            I can't wait to celebrate many more birthdays with you, to hold your hand through every chapter of life, and to make every moment unforgettable. You make my life complete, and I promise to always stand by your side, loving you more with each passing day.
+            
+            Happy Birthday, my babe! May your heart always be as full of love as mine is for you. 💖🎉
+            
+            With all my love,
+            Your Parash 💕
+            </p>
+        <button class="back-button" onclick="showPage1()">Back to Home</button>
+    </div>
+
+    <script>
+        document.getElementById("balloon").addEventListener("click", function() {
+            this.classList.add("pop");
+            setTimeout(() => {
+                document.getElementById("cake-container").style.display = "block";
+            }, 1000);
+        });
+
+        function showPage2() {
+            document.getElementById("page1").classList.add("hidden");
+            document.getElementById("page2").classList.remove("hidden");
+        }
+
+        function showPage1() {
+            document.getElementById("page1").classList.remove("hidden");
+            document.getElementById("page2").classList.add("hidden");
+            document.getElementById("cake-container").style.display = "none";
+            document.getElementById("balloon").classList.remove("pop");
+        }
+    </script>
+
+</body>
+</html>
